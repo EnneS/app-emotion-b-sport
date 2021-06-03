@@ -1,69 +1,63 @@
 <template>
   <app-navigator></app-navigator>
-  
 </template>
 
 <script>
 import {
   createAppContainer,
-  createBottomTabNavigator,
+  createStackNavigator,
 } from "vue-native-router";
 
-import HomeScreen from "./screens/HomeScreen.vue";
-import TodaysBetsScreen from "./screens/TodaysBetsScreen.vue";
-import BilanScreen from "./screens/BilanScreen.vue";
-import ContactScreen from "./screens/ContactScreen.vue";
-import * as React from 'react';
+import LoginScreen from "./screens/LoginScreen.vue";
+import LoggedScreen from "./screens/LoggedScreen.vue";
+import SettingsScreen from "./screens/SettingsScreen.vue";
+import {Button, Image} from 'react-native';
+import { LogoLight } from './assets/img';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
-const BottomTabNavigator = createBottomTabNavigator(
+import * as React from 'react';
+
+function LogoTitle() {
+  return (
+    <Image
+      style={{ width: 200, height: 50, resizeMode: "stretch" }}
+      source={LogoLight}
+    />
+  );
+}
+
+const StackNavigator = createStackNavigator(
   {
-    Today: {
-      screen:TodaysBetsScreen,
+    Login: {
+      screen: LoginScreen,
       navigationOptions: ({ navigation }) => ({
-        title:"24H",
-        tabBarIcon: (focused) => {
-          return <FontAwesome5 name="clock" color={navigation.isFocused() ? '#3788fa' : 'gray'}size={24} solid/>
-        },
+        headerShown : false,
       })
     },
-    Pronos: {
-      screen:HomeScreen,
+    Logged: {
+      screen: LoggedScreen,
       navigationOptions: ({ navigation }) => ({
-        title:"Pronos",
-        tabBarIcon: (focused) => {
-          return <FontAwesome5 name="basketball-ball" color={navigation.isFocused() ? '#3788fa' : 'gray'}size={24} solid/>
-        },
-      })
+        headerTitle: props => <LogoTitle{... props}/>,
+        headerRight: () => (
+          <FontAwesome5 name="cog" color="gray" size={24} solid onPress={() => navigation.navigate("Settings") } style={{marginHorizontal:10}}/>
+        ),
+        headerLeft: () => null,
+      }),
     },
-    Bilan: {
-      screen: BilanScreen,
+    Settings: {
+      screen: SettingsScreen,
       navigationOptions: ({ navigation }) => ({
-        tabBarIcon: (focused) => {
-          return <FontAwesome5 name="chart-line" color={navigation.isFocused() ? '#3788fa' : 'gray'}size={24} solid/>
-        },
-      })
-    },
-    Contact: {
-      screen: ContactScreen,
-      navigationOptions: ({ navigation }) => ({
-        tabBarIcon: (focused) => {
-          return <FontAwesome5 name="at" color={navigation.isFocused() ? '#3788fa' : 'gray'}size={24} solid/>
-        },
-      })
-    },
+        headerTitle: "Paramètres",
+      }),
+    }
   },
   {
-    initialRouteName:'Pronos',
-    tabBarOptions: {
-      showLabel: true,
-      showIcon: true,
-      activeTintColor: '#3788fa',
-    },
+    initialRouteName: 'Login',
+    headerLayoutPreset: 'center',
   }
 );
 
-const AppNavigator = createAppContainer(BottomTabNavigator);
+const AppNavigator = createAppContainer(StackNavigator);
 
 export default {
   components: { AppNavigator },

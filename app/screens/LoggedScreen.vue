@@ -1,12 +1,11 @@
 <template>
   <app-navigator></app-navigator>
-  
 </template>
 
 <script>
 import {
   createAppContainer,
-  createBottomTabNavigator,
+  createMaterialTopTabNavigator,
 } from "vue-native-router";
 
 import HomeScreen from "./HomeScreen.vue";
@@ -16,7 +15,9 @@ import ContactScreen from "./ContactScreen.vue";
 import * as React from 'react';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
-const BottomTabNavigator = createBottomTabNavigator(
+let dark = true;
+
+const BottomTabNavigator = createMaterialTopTabNavigator(
   {
     Today: {
       screen:TodaysBetsScreen,
@@ -54,11 +55,33 @@ const BottomTabNavigator = createBottomTabNavigator(
     },
   },
   {
+    tabBarPosition: "bottom",
     initialRouteName:'Pronos',
     tabBarOptions: {
       showLabel: true,
       showIcon: true,
       activeTintColor: '#3788fa',
+      style: {
+        backgroundColor: "white"
+      },
+      tabStyle: {
+        height:55,
+        minHeight:10,
+        maxHeight:55,
+      },
+      labelStyle:{
+        textTransform: 'capitalize',
+        fontSize: 10,
+        marginTop:0
+      },
+      iconStyle:{
+        marginTop:5
+      },
+      indicatorStyle:{
+        top:0,
+        backgroundColor:"#3788fa",
+      },
+      pressColor:"lightgray"
     },
   }
 );

@@ -1,15 +1,43 @@
 <template>
-  <view class="container">
-    <text class="heading">Login</text>
-    <text class="text">This is the Login screen</text>
-    <button title="Login" @press="login"></button>
-  </view>
+  <image-background
+        :source="require('../assets/img/background-login-screen-gradient.jpg')"
+        :style="{ width: '100%', height: '100%'}"
+      >
+    <view :style="styles.page">
+      <image
+        :source="imgs.logoVertivalDark"
+        :style="styles.logo"
+        class="logo"
+      />
+      <view 
+        class="containerConnexionForm"
+        :style="styles.containerConnexionForm"
+      >
+        <text class="headerConnexionForm" :style="styles.headerConnexionForm">Connectez-Vous</text>
+        <text-input placeholder="E-mail" v-model="email" class="inputConnexionForm"/>
+        <text-input placeholder="Mot de passe" v-model="password" class="inputConnexionForm"/>
+        <!-- <linear-gradient :colors="['white','red']"> -->
+          <button title="Go" @press="login"></button>
+        <!-- </linear-gradient> -->
+      </view>
+    </view>
+  </image-background>
 </template>
 
 <script>
 import { StackActions, NavigationActions } from 'react-navigation';
+// import LinearGradient from 'react-native-linear-gradient';
 
 export default {
+  components: {
+    // LinearGradient
+  },
+  data() {
+    return {
+      email: '',
+      password: ''
+    }
+  },
   props: {
     navigation: { type: Object }
   },
@@ -22,17 +50,51 @@ export default {
 
       this.navigation.dispatch(navigateAction);
     }
+  },
+  computed: {
+    styles() {
+      return this.$styles.loginScreen;
+    },
+    imgs() {
+      return this.$imgs;
+    }
   }
 }
 </script>
 
 <style>
-.container {
-  align-items: center;
-  justify-content: center;
-  flex: 1;
-  padding: 50px;
+.logo {
+  width: 275;
+  height: 150;
+  margin-bottom: 20;
 }
+
+.containerConnexionForm {
+			width: 300;
+			background-color: #f9f9f9;
+			border-radius: 1;
+      padding: 25;
+      display: flex;
+      justify-content: space-around;
+}
+
+.headerConnexionForm {
+  color: #393939;
+  font-size: 25;
+  margin-bottom: 15;
+  font-family: 'Roboto';
+}
+
+.inputConnexionForm {
+  font-size: 17;
+  height: 40;
+  color: #808080;
+  border-bottom-color: #808080;;
+  border-bottom-width: 1;
+  margin-bottom: 20;
+  padding-left: 0;
+}
+
 .heading {
   font-size: 30px;
   font-weight: bold;
@@ -43,4 +105,5 @@ export default {
   text-align: center;
   margin: 10px;
 }
+
 </style>

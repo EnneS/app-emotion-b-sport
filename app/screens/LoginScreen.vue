@@ -16,9 +16,17 @@
         <text class="headerConnexionForm" :style="styles.headerConnexionForm">Connectez-Vous</text>
         <text-input placeholder="E-mail" v-model="email" class="inputConnexionForm"/>
         <text-input placeholder="Mot de passe" v-model="password" class="inputConnexionForm"/>
-        <!-- <linear-gradient :colors="['white','red']"> -->
-          <button title="Go" @press="login"></button>
-        <!-- </linear-gradient> -->
+        <linear-gradient  
+          :start="{x: 0, y: 0}" :end="{x: 1, y: 0}" 
+          :colors="['#21C8F6', '#637BFF']" 
+          class="color-button"
+          >
+            <Text class="text-button">
+              Go
+            </Text>
+             <FontAwesome5 name="arrow-right" color="white" class="arrow-button" solid/>
+          <!-- <button title="Go" @press="login"></button> -->
+        </linear-gradient>
       </view>
     </view>
   </image-background>
@@ -26,11 +34,13 @@
 
 <script>
 import { StackActions, NavigationActions } from 'react-navigation';
-// import LinearGradient from 'react-native-linear-gradient';
+import LinearGradient from 'react-native-linear-gradient';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
 export default {
   components: {
-    // LinearGradient
+    LinearGradient,
+    FontAwesome5
   },
   data() {
     return {
@@ -63,6 +73,26 @@ export default {
 </script>
 
 <style>
+.arrow-button {
+  position: absolute;
+  right: 5;
+  top: 10;
+  font-size: 15;
+}
+
+
+.text-button {
+  color: white;
+  text-align: center;
+  text-align-vertical: center;
+  height: 36;
+}
+
+.color-button {
+  border-radius: 5;
+  elevation: 5;
+}
+
 .logo {
   width: 275;
   height: 150;

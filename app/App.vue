@@ -12,7 +12,7 @@ import LoginScreen from "./screens/LoginScreen.vue";
 import LoggedScreen from "./screens/LoggedScreen.vue";
 import SettingsScreen from "./screens/SettingsScreen.vue";
 import {Button, Image} from 'react-native';
-import { LogoLight } from './assets/img';
+// import imgs from './assets/img/index.js';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
 import * as React from 'react';
@@ -21,7 +21,7 @@ function LogoTitle() {
   return (
     <Image
       style={{ width: 200, height: 50, resizeMode: "stretch" }}
-      source={LogoLight}
+      source={ imgs.logoHorizontalLight }
     />
   );
 }
@@ -37,7 +37,7 @@ const StackNavigator = createStackNavigator(
     Logged: {
       screen: LoggedScreen,
       navigationOptions: ({ navigation }) => ({
-        headerTitle: props => <LogoTitle{... props}/>,
+        headerTitle: props => <LogoTitle/>,
         headerRight: () => (
           <FontAwesome5 name="cog" color="gray" size={24} solid onPress={() => navigation.navigate("Settings") } style={{marginHorizontal:10}}/>
         ),

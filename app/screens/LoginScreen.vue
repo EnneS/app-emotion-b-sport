@@ -1,15 +1,52 @@
 <template>
-  <view class="container">
-    <text class="heading">Login</text>
-    <text class="text">This is the Login screen</text>
-    <button title="Login" @press="login"></button>
-  </view>
+  <image-background
+        :source="require('../assets/img/background-login-screen-gradient.jpg')"
+        :style="{ width: '100%', height: '100%'}"
+      >
+    <view :style="styles.page">
+      <image
+        :source="imgs.logoVertivalDark"
+        :style="styles.logo"
+        class="logo"
+      />
+      <view 
+        class="containerConnexionForm"
+        :style="styles.containerConnexionForm"
+      >
+        <text class="headerConnexionForm" :style="styles.headerConnexionForm">Connectez-Vous</text>
+        <text-input placeholder="E-mail" v-model="email" :style="styles.inputForm"/>
+        <text-input placeholder="Mot de passe" v-model="password" :style="styles.inputForm"/>
+        <linear-gradient  
+          :start="{x: 0, y: 0}" :end="{x: 1, y: 0}" 
+          :colors="[styles.colorsButton.color1, styles.colorsButton.color2]" 
+          :style="styles.button"
+          >
+            <Text :style="styles.textButton" @press="login">
+              Go
+            </Text>
+             <FontAwesome5  name="arrow-right" :style="styles.arrowButton" solid/>
+        </linear-gradient>
+      </view>
+    </view>
+  </image-background>
 </template>
 
 <script>
 import { StackActions, NavigationActions } from 'react-navigation';
+import LinearGradient from 'react-native-linear-gradient';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
 export default {
+  components: {
+    LinearGradient,
+    FontAwesome5
+  },
+  data() {
+    return {
+      email: '',
+      password: ''
+    }
+  },
   props: {
     navigation: { type: Object }
   },
@@ -22,25 +59,24 @@ export default {
 
       this.navigation.dispatch(navigateAction);
     }
+  },
+  computed: {
+    styles() {
+      return this.$styles.loginScreen;
+    },
+    imgs() {
+      return this.$imgs;
+    }
   }
 }
 </script>
 
 <style>
-.container {
-  align-items: center;
-  justify-content: center;
-  flex: 1;
-  padding: 50px;
+
+.logo {
+  width: 275;
+  height: 150;
+  margin-bottom: 20;
 }
-.heading {
-  font-size: 30px;
-  font-weight: bold;
-  color: turquoise;
-  margin: 20px;
-}
-.text {
-  text-align: center;
-  margin: 10px;
-}
+
 </style>

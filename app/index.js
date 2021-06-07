@@ -13,5 +13,7 @@ import imgs from './assets/img/index.js';
 Vue.prototype.$styles = styles;
 Vue.prototype.$imgs = imgs;
 
+console.disableYellowBox = true
+
 Vue.component("ionicons", Icon);
 AppRegistry.registerComponent(appName, () => App);

@@ -12,8 +12,7 @@ import LoginScreen from "./screens/LoginScreen.vue";
 import LoggedScreen from "./screens/LoggedScreen.vue";
 import SettingsScreen from "./screens/SettingsScreen.vue";
 import {Button, Image} from 'react-native';
-import Logo from './assets/img/index.js';
-import imgs from './assets/img/index.js';
+// import imgs from './assets/img/index.js';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
 import * as React from 'react';
@@ -22,7 +21,7 @@ function LogoTitle() {
   return (
     <Image
       style={{ width: 200, height: 50, resizeMode: "stretch" }}
-      source={imgs.logoHorizontalLight}
+      source={ imgs.logoHorizontalLight }
     />
   );
 }

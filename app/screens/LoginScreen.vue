@@ -14,18 +14,17 @@
         :style="styles.containerConnexionForm"
       >
         <text class="headerConnexionForm" :style="styles.headerConnexionForm">Connectez-Vous</text>
-        <text-input placeholder="E-mail" v-model="email" class="inputConnexionForm"/>
-        <text-input placeholder="Mot de passe" v-model="password" class="inputConnexionForm"/>
+        <text-input placeholder="E-mail" v-model="email" :style="styles.inputForm"/>
+        <text-input placeholder="Mot de passe" v-model="password" :style="styles.inputForm"/>
         <linear-gradient  
           :start="{x: 0, y: 0}" :end="{x: 1, y: 0}" 
-          :colors="['#21C8F6', '#637BFF']" 
-          class="color-button"
+          :colors="[styles.colorsButton.color1, styles.colorsButton.color2]" 
+          :style="styles.button"
           >
-            <Text class="text-button">
+            <Text :style="styles.textButton" @press="login">
               Go
             </Text>
-             <FontAwesome5 name="arrow-right" color="white" class="arrow-button" solid/>
-          <!-- <button title="Go" @press="login"></button> -->
+             <FontAwesome5  name="arrow-right" :style="styles.arrowButton" solid/>
         </linear-gradient>
       </view>
     </view>
@@ -73,67 +72,11 @@ export default {
 </script>
 
 <style>
-.arrow-button {
-  position: absolute;
-  right: 5;
-  top: 10;
-  font-size: 15;
-}
-
-
-.text-button {
-  color: white;
-  text-align: center;
-  text-align-vertical: center;
-  height: 36;
-}
-
-.color-button {
-  border-radius: 5;
-  elevation: 5;
-}
 
 .logo {
   width: 275;
   height: 150;
   margin-bottom: 20;
-}
-
-.containerConnexionForm {
-			width: 300;
-			background-color: #f9f9f9;
-			border-radius: 1;
-      padding: 25;
-      display: flex;
-      justify-content: space-around;
-}
-
-.headerConnexionForm {
-  color: #393939;
-  font-size: 25;
-  margin-bottom: 15;
-  font-family: 'Roboto';
-}
-
-.inputConnexionForm {
-  font-size: 17;
-  height: 40;
-  color: #808080;
-  border-bottom-color: #808080;;
-  border-bottom-width: 1;
-  margin-bottom: 20;
-  padding-left: 0;
-}
-
-.heading {
-  font-size: 30px;
-  font-weight: bold;
-  color: turquoise;
-  margin: 20px;
-}
-.text {
-  text-align: center;
-  margin: 10px;
 }
 
 </style>

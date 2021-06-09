@@ -7,7 +7,6 @@
       <image
         :source="imgs.logoVertivalDark"
         :style="styles.logo"
-        class="logo"
       />
       <view 
         class="containerConnexionForm"
@@ -72,11 +71,4 @@ export default {
 </script>
 
 <style>
-
-.logo {
-  width: 275;
-  height: 150;
-  margin-bottom: 20;
-}
-
 </style>

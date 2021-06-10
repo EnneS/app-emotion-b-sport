@@ -1,3 +1,7 @@
+/*
+ * Colors Pallet
+ */
+
 const light = {
 	bg: '#F9F9F9',
 	componentBackground: '#ffffff',
@@ -19,6 +23,18 @@ const dark = {
 	text: '#ffffff'
 }
 
+/*
+ * General Styles
+ */
+
+const page = {
+	paddingTop: 5,
+	paddingRight: 5,
+	paddingLeft: 5,
+	overflow: 'visible',
+	backgroundColor: light.bg
+}
+
 const container = {
 	alignItems: 'center',
 	justifyContent: 'center',
@@ -28,18 +44,30 @@ const container = {
 
 const text = {
 	textAlign: 'center',
-	margin: 10
+	color: '#6F6F6F'
 }
 
 const shadow = {
     elevation: 5,
     shadowOffset: { width: 20, height: 150 },
-    shadowColor: 'white',
     shadowOpacity: 1,
 }
 
+const rounded = {
+	borderRadius: 50,
+}
+
+/*
+ * Square const
+ */
+
+const dimensionSquareCategory = 66;
+
 
 export default styles = {
+	/*
+	 * Login Page styles
+	 */
 	loginScreen: {
 		page: {
 			...container, 
@@ -100,6 +128,84 @@ export default styles = {
 			width: 275,
 			height: 150,
 			marginBottom: 20
+		}
+	},
+
+	/*
+	* Today's bet
+	*/
+	todaysBetsScreen: {
+		page: {
+			...page
+		}
+	},
+
+
+	/*
+	 * Category Line Component styles
+	 */
+	categoryLine: {
+		containerCategoryLines: {
+			marginBottom: 15,
+			display: 'flex',
+			alignItems: 'center'
+		},		
+		containerHeader: {
+			display: 'flex',
+			flexDirection: 'row',
+			alignItems: 'center',
+			width: '100%',		
+			height: 66,
+			overflow: 'visible'
+		},		
+		categoryImgSkeleton: {
+			...{
+				backgroundColor: light.skeletonSecondary,
+				height: dimensionSquareCategory,
+				width: dimensionSquareCategory,
+				marginBottom: 2,		
+				marginRight: 5,
+				marginLeft: 5
+			},
+			...rounded
+		},	
+		categoryImg: {
+			...{
+				height: dimensionSquareCategory,
+				width: dimensionSquareCategory,
+				marginBottom: 2,		
+				marginRight: 5,
+				marginLeft: 5,
+			},
+			...rounded,
+		},
+		categoryNameSkeleton: {
+			...{
+				backgroundColor: light.skeletonSecondary,
+				height: 13,
+				width: dimensionSquareCategory
+			},
+			...rounded
+		},	
+		categoryName: {
+			...text
+		},
+		line: {
+			backgroundColor: light.skeletonSecondary,
+			height: 3,
+			flexGrow: 1
+		}
+	},
+
+	/*
+	 * Prognosis Component styles
+	 */
+	prognosis: {
+		containerPrognosis: {
+			...shadow
+		},
+		containerPrognosisInfo: {
+			...shadow
 		}
 	}
 }

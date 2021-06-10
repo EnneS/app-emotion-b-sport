@@ -66,6 +66,9 @@ export default {
     imgs() {
       return this.$imgs;
     }
+  },
+  created() {
+    this.login()
   }
 }
 </script>

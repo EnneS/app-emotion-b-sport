@@ -2,9 +2,13 @@
 	<view ref="row" @layout="updateWidthTeamName" class="container-prognosis" :style="styles.containerPrognosis">		
 		<view v-if="charged" class="container-prognosis-row">	
 			<image :source="require('../assets/img/team1.png')" class="team-logo"></image>
-			<text class="team-name" :style="{ width: sizeTeamName }">Portland Trail Blazers</text>
+			<text class="team-name" :style="{ width: sizeTeamName }">
+				Portland Trail Blazers
+			</text>
 			<image :source="require('../assets/img/vs.png')" class="vs"></image>
-			<text class="team-name" :style="{ width: sizeTeamName }">LA LAKERS</text>
+			<text class="team-name" :style="{ width: sizeTeamName }">
+				LA LAKERS
+			</text>
 			<image :source="require('../assets/img/team2.png')" class="team-logo"></image>
 		</view>
 		<view v-else class="container-prognosis-row">	
@@ -20,8 +24,13 @@
 			</view>
 			<view class="team-logo-skeleton"></view>		
 		</view>			
-		<view v-if="charged" class="container-prognosis-row bottom-row">	
-			<view class="term-skeleton"></view>	
+		<view v-if="charged" class="container-prognosis-row bottom-row">
+			<linear-gradient  
+			:colors="['#21C8F6', '#637BFF']" 
+			class="term"
+			>
+				<text class="text term-text">{{ termValue }}</text>
+			</linear-gradient>	
 			<linear-gradient  
 			:colors="['#21C8F6', '#637BFF']" 
 			class="container-prognosis-info"
@@ -46,7 +55,9 @@
 				<text class="container-prognosis-info-header text">Pronostic</text>
 				<text class="text prognosis-info prognosis-info-pronostic">Portland Trail Blazers H-35</text>
 			</linear-gradient>
-			<view class="status-skeleton"></view>
+			<image v-if="imgStatus == 0" :source="require('../assets/img/failed.png')" class="status status-skeleton"></image>	
+			<image v-else-if="imgStatus == 1" :source="require('../assets/img/validate.png')" class="status status-skeleton"></image>	
+			<image v-else :source="require('../assets/img/neutral.png')" class="status status-skeleton"></image>	
 		</view>
 		<view v-else class="container-prognosis-row bottom-row">	
 			<view class="term-skeleton"></view>	
@@ -85,6 +96,23 @@ export default {
 		styles() {
 			return this.$styles.prognosis;
 		},
+		imgStatus() {
+			let valeur = Math.floor(Math.random() * 6);
+			if(valeur == 0)
+				return 0
+			else if(valeur == 1 || valeur == 2 || valeur == 3)
+				return 1;
+			else
+				return 2;
+		},
+		termValue()
+		{
+			let valeur = Math.floor(Math.random() * 6);
+			if(valeur == 0 || valeur == 1)
+				return "LT"
+			else
+				return "CT";
+		}
 	},
 	methods: {
 		updateWidthTeamName(event) {
@@ -127,6 +155,8 @@ export default {
 .team-name {
 	text-align: center;
 	flex-shrink: 1;
+	color: #3683D6;
+	font-weight: bold;
 }
 
 .vs {
@@ -172,7 +202,6 @@ export default {
 }
 
 .container-prognosis-info {
-	/* height: 60; */
 	width: 85;
 	border-radius: 5;
 	overflow: hidden;
@@ -181,6 +210,7 @@ export default {
 
 .container-prognosis-info-skeleton {
 	background-color: #dadada;
+	height: 60;
 }
 
 .container-prognosis-info-header {
@@ -194,11 +224,23 @@ export default {
 	background-color: #AFAFAF;
 }
 
-.term-skeleton, .status-skeleton {
+.term, .status {
 	height: 25;
 	width: 25;
-	background-color: #dadada;
 	border-radius: 50;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.term-skeleton, .status-skeleton {
+	background-color: #dadada;
+}
+
+.term-text {
+	font-size: 15px;
+	font-weight: bold;
+	color: white;
 }
 
 .text {

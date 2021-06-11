@@ -2,6 +2,7 @@
   <view class="container">
     <text class="heading">Settings</text>
     <text class="text">This is the Settings screen</text>
+    <button @press="logout()" title="Se déconnecter"></button>
   </view>
 </template>
 
@@ -9,6 +10,11 @@
 export default {
   props: {
     navigation: { type: Object }
+  },
+  methods:{
+    logout(){
+      this.$store.dispatch("LOGOUT", { navigation: this.navigation });
+    }
   }
 }
 </script>

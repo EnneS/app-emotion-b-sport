@@ -1,6 +1,6 @@
 <template>
   <view class="container">
-    <text class="heading">Home</text>
+    <text class="heading">Home - Bienvenue {{ user.name }}</text>
     <text class="text">This is the Home screen</text>
   </view>
 </template>
@@ -9,6 +9,11 @@
 export default {
   props: {
     navigation: { type: Object }
+  },
+  computed:{
+    user(){
+      return this.$store.state.user;
+    }
   }
 }
 </script>

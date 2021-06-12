@@ -12,3 +12,7 @@ export function LOGOUT(state){
   state.user = {};
   state.loggedIn = false;
 }
+
+export function TOGGLE_DARKMODE(state){
+  state.darkMode = !state.darkMode;
+}

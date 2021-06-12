@@ -1,6 +1,6 @@
 <template>
   <view class="container">
-    <text class="heading">Home - Bienvenue {{ user.name }}</text>
+    <text class="heading">Home</text>
     <text class="text">This is the Home screen</text>
   </view>
 </template>

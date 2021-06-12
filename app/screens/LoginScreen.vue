@@ -34,7 +34,6 @@
 import { StackActions, NavigationActions } from 'react-navigation';
 import LinearGradient from 'react-native-linear-gradient';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default {
   components: {

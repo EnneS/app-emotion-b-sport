@@ -37,6 +37,7 @@ const store = new Vuex.Store({
         user: {},
         loggingIn: false,
         loggedIn: false,
+        darkMode: false,
     }
 });
 

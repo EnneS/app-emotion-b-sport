@@ -33,3 +33,7 @@ export function LOGOUT({commit}, {navigation}) {
         resolve();
     })
 }
+
+export function TOGGLE_DARKMODE({commit}) {
+    return commit("TOGGLE_DARKMODE");
+}

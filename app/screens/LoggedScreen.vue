@@ -24,7 +24,7 @@ const BottomTabNavigator = createMaterialTopTabNavigator(
       navigationOptions: ({ navigation }) => ({
         title:"24H",
         tabBarIcon: (focused) => {
-          return <FontAwesome5 name="clock" color={navigation.isFocused() ? '#3788fa' : 'gray'}size={24} solid/>
+          return <FontAwesome5 name="clock" color={navigation.isFocused() ? '#3788fa' : '#B0B0B0'}size={24} solid/>
         },
       })
     },
@@ -33,7 +33,7 @@ const BottomTabNavigator = createMaterialTopTabNavigator(
       navigationOptions: ({ navigation }) => ({
         title:"Pronos",
         tabBarIcon: (focused) => {
-          return <FontAwesome5 name="basketball-ball" color={navigation.isFocused() ? '#3788fa' : 'gray'}size={24} solid/>
+          return <FontAwesome5 name="basketball-ball" color={navigation.isFocused() ? '#3788fa' : '#B0B0B0'}size={24} solid/>
         },
       })
     },
@@ -41,7 +41,7 @@ const BottomTabNavigator = createMaterialTopTabNavigator(
       screen: BilanScreen,
       navigationOptions: ({ navigation }) => ({
         tabBarIcon: (focused) => {
-          return <FontAwesome5 name="chart-line" color={navigation.isFocused() ? '#3788fa' : 'gray'}size={24} solid/>
+          return <FontAwesome5 name="chart-line" color={navigation.isFocused() ? '#3788fa' : '#B0B0B0'}size={24} solid/>
         },
       })
     },
@@ -49,7 +49,7 @@ const BottomTabNavigator = createMaterialTopTabNavigator(
       screen: ContactScreen,
       navigationOptions: ({ navigation }) => ({
         tabBarIcon: (focused) => {
-          return <FontAwesome5 name="at" color={navigation.isFocused() ? '#3788fa' : 'gray'}size={24} solid/>
+          return <FontAwesome5 name="at" color={navigation.isFocused() ? '#3788fa' : '#B0B0B0'}size={24} solid/>
         },
       })
     },

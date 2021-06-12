@@ -1,3 +1,5 @@
+import { Directions } from "react-native-gesture-handler"
+
 const light = {
 	bg: '#F9F9F9',
 	componentBackground: '#ffffff',
@@ -40,6 +42,10 @@ const shadow = {
 
 
 export default styles = {
+	palettes: {
+		light,
+		dark,
+	},
 	loginScreen: {
 		page: {
 			...container, 
@@ -100,6 +106,45 @@ export default styles = {
 			width: 275,
 			height: 150,
 			marginBottom: 20
+		}
+	},
+	settingsScreen: {
+		header: {
+			display: 'flex',
+			alignSelf: 'flex-end',
+			flexDirection: 'row',
+			marginRight: 40,
+			marginTop: 40,
+			justifyContent: 'center',
+		},
+		headerText: {
+			fontSize: 28,
+			marginRight: 18,
+			fontWeight: 'bold',
+		},
+		closeButton: {
+			fontSize: 32,
+			padding: 4
+		},
+		settingsBody: {
+			paddingTop: 90,
+			paddingLeft: 40,
+			paddingRight: 40,
+		},
+		settingLine: {
+			display: 'flex',
+			flexDirection: 'row',
+			justifyContent: 'space-between',
+			alignItems: 'center',
+			marginBottom: 30,
+		},
+		settingText: {
+			fontSize: 24,
+			fontWeight: 'bold',
+		},
+		settingSwitch: {
+			scaleX: 1.5,
+			scaleY: 1.5,
 		}
 	}
 }

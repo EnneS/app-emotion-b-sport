@@ -39,7 +39,7 @@ const StackNavigator = createStackNavigator(
       navigationOptions: ({ navigation }) => ({
         headerTitle: props => <LogoTitle/>,
         headerRight: () => (
-          <FontAwesome5 name="cog" color="gray" size={24} solid onPress={() => navigation.navigate("Settings") } style={{marginHorizontal:10}}/>
+          <FontAwesome5 name="cog" color="#B0B0B0" size={24} solid onPress={() => navigation.navigate("Settings") } style={{marginHorizontal:10}}/>
         ),
         headerLeft: () => null,
       }),
@@ -47,7 +47,7 @@ const StackNavigator = createStackNavigator(
     Settings: {
       screen: SettingsScreen,
       navigationOptions: ({ navigation }) => ({
-        headerTitle: "Paramètres",
+        headerShown: false,
       }),
     }
   },

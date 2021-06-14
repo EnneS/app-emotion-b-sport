@@ -62,7 +62,8 @@ const rounded = {
  */
 
 const dimensionSquareCategory = 66;
-
+const dimensionSquareTeam = 55;
+const dimensionSquareVs = 55;
 
 export default styles = {
 	/*
@@ -202,10 +203,153 @@ export default styles = {
 	 */
 	prognosis: {
 		containerPrognosis: {
-			...shadow
+			...shadow,
+			...{
+				backgroundColor: light.componentBackground,
+				marginBottom: 5,
+				borderRadius: 5,
+				overflow: 'visible',
+				marginBottom: 15,
+			}
+		},
+		containerPrognosisRow: {
+			display: 'flex',
+			flexDirection: 'row',
+			justifyContent: 'space-between',
+			alignItems: 'center',
+			maxWidth: '100%',
+			minWidth: '100%',
+			overflow: 'hidden',
+			padding: 5
+		},
+		containerPrognosisRowBottom: {
+			display: 'flex',
+			flexDirection: 'row',
+			justifyContent: 'space-between',
+			maxWidth: '100%',
+			minWidth: '100%',
+			overflow: 'hidden',
+			padding: 5,
+			alignItems: 'flex-end'
+		},
+		teamLogo: {
+			height: dimensionSquareTeam,
+			width: dimensionSquareTeam
+		},
+		teamLogoSkeleton: {
+			height: dimensionSquareTeam,
+			width: dimensionSquareTeam,
+			borderRadius: 50,
+			backgroundColor: light.skeletonSecondary
+		},
+		teamName: {
+			textAlign: 'center',
+			flexShrink: 1,
+			color: '#3683D6',
+			fontWeight: 'bold',
+		},
+		teamNameSkeleton: {
+			flexGrow: 1,
+			display: 'flex',
+			alignItems: 'center'
+		},
+		teamNameLine1Skeleton: {
+			width: '100%',
+			height: 13,
+			backgroundColor: light.skeletonSecondary,
+			borderRadius: 50,
+			marginBottom: 5,
+		},		
+		teamNameLine2Skeleton: {
+			width: '70%',
+			height: 13,
+			backgroundColor: light.skeletonSecondary,
+			borderRadius: 50,
+		},
+		vs: {
+			height: 25,
+			width: 25,
+			margin: 5
+		},
+		vsSkeleton: {
+			height: 25,
+			width: 25,
+			backgroundColor: light.skeletonSecondary,
+			margin: 5,
+			borderRadius: 50,
 		},
 		containerPrognosisInfo: {
-			...shadow
-		}
+			...shadow,
+			...{
+				width: 85,
+				borderRadius: 5,
+				overflow: 'hidden',
+				display: 'flex'
+			}
+		},
+		containerPrognosisInfoSkeleton: {
+			backgroundColor: light.skeletonSecondary,
+			height: 60,
+			width: 85,
+			borderRadius: 5,
+			overflow: 'hidden',
+		},
+		containerPrognosisInfoHeader: {
+			height: 18,
+			backgroundColor: 'white',
+			color: '#3683D6',
+			fontSize: 15,
+			textAlign: 'center'
+		},
+		containerPrognosisInfoHeaderSkeleton: {
+			height: 18,
+			color: '#3683D6',
+			fontSize: 15,
+			backgroundColor: light.skeletonPrimary
+		},
+		termAndStatus: {
+			height: 25,
+			width: 25,
+			borderRadius: 50,
+			display: 'flex',
+			justifyContent: 'center',
+			alignItems: 'center'
+		},
+		termAndStatusSkeleton: {
+			height: 25,
+			width: 25,
+			borderRadius: 50,
+			display: 'flex',
+			justifyContent: 'center',
+			alignItems: 'center',
+			backgroundColor: light.skeletonSecondary
+		},
+		termText: {
+			...text,
+			...{
+				fontSize: 15,
+				fontWeight: 'bold',
+				color: 'white',
+			}
+		},
+		prognosisInfo: {
+			flexGrow: 1,
+			color: 'white',
+			fontSize: 20,
+			fontWeight: 'bold',
+			paddingTop: 5,
+			paddingBottom: 5,
+			textAlign: 'center'
+		},
+		prognosisInfoPrognosis: {
+			flexGrow: 1,
+			color: 'white',
+			fontSize: 20,
+			fontWeight: 'bold',
+			paddingTop: 5,
+			paddingBottom: 5,
+			fontSize: 12,
+			textAlign: 'center'
+		},
 	}
 }

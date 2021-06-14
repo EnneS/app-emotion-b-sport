@@ -371,6 +371,10 @@ export default styles = {
 			*/
 
 			settingsScreen: {
+				page: {
+					flex: 1,
+					backgroundColor: colorPalet[mode].bg
+				},
 				header: {
 					display: 'flex',
 					alignSelf: 'flex-end',

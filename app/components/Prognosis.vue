@@ -91,7 +91,7 @@ export default {
 	},
 	computed: {
 		styles() {
-			return this.$styles.prognosis;
+			return this.$styles.getStyles(this.$store.state.darkMode ? "dark" : "light").prognosis;
 		},
 		imgs() {
 			return this.$imgs;

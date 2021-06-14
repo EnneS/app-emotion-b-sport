@@ -1,5 +1,5 @@
 <template>
-    <view :style="{backgroundColor: darkMode ? palettes.dark.bg : palettes.light.bg}" class="body">
+    <view :style="styles.page">
       <view :style="styles.header">
         <text :style="styles.headerText">Paramètres</text>
         <FontAwesome5 @press="goBack()" name="times" solid :style="styles.closeButton"/>
@@ -42,7 +42,7 @@ export default {
   },
   computed:{
     styles() {
-      return this.$styles.settingsScreen;
+      return this.$styles.getStyles(this.$store.state.darkMode ? "dark" : "light").settingsScreen;
     },
     palettes(){
       return this.$styles.palettes;

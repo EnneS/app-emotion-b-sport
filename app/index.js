@@ -11,9 +11,10 @@ import store from './assets/js/store/'
 import styles from './assets/js/styles.js'
 import imgs from './assets/img/index.js';
 
-Vue.prototype.$styles = styles.getStyles("dark");
+
 Vue.prototype.$imgs = imgs;
 Vue.prototype.$store = store;
+Vue.prototype.$styles = styles;
 
 console.disableYellowBox = true;
 

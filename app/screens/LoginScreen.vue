@@ -81,7 +81,7 @@ export default {
   },
   computed: {
     styles() {
-      return this.$styles.loginScreen;
+      return this.$styles.getStyles("light").loginScreen;
     },
     imgs() {
       return this.$imgs;

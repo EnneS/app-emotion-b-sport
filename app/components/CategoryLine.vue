@@ -24,7 +24,7 @@ export default {
 	},
 	computed: {
 		styles() {
-			return this.$styles.categoryLine
+			return this.$styles.getStyles("light").categoryLine
 		}
 	}
 }

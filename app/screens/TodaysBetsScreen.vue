@@ -26,7 +26,7 @@ export default {
   },
   computed: {
     styles() {
-      return this.$styles.todaysBetsScreen
+      return this.$styles.getStyles("light").todaysBetsScreen
     }
   }
 }

@@ -49,14 +49,34 @@ export default {
   props: {
     navigation: { type: Object }
   },
+  created(){
+    this.$store._vm.$root.$on("storageReady", () => {
+        console.log("stateBeingFilled", this.$store.state.user.name == undefined);
+        if (this.$store.state.user.name != undefined) {
+          console.log(this.$store.state.user);
+          
+          const navigateAction = StackActions.reset({
+                index: 0,
+                actions: [NavigationActions.navigate({ routeName: "Logged" })],
+          });
+        
+          this.navigation.dispatch(navigateAction);
+        } else {
+          console.log("Not logged in");
+        }
+    });
+  },
   methods:{
     async login(){
-      const navigateAction = StackActions.reset({
-        index: 0,
-        actions: [NavigationActions.navigate({ routeName: "Logged" })],
+      let user = {
+        name: "Nathan",
+      };
+
+      this.$store.dispatch("LOGIN", {
+        user, 
+        navigation: this.navigation
       });
 
-      this.navigation.dispatch(navigateAction);
     }
   },
   computed: {

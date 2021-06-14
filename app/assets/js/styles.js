@@ -364,6 +364,50 @@ export default styles = {
 					fontSize: 12,
 					textAlign: 'center'
 				},
+			},
+
+			/*
+			* Setting Screen
+			*/
+
+			settingsScreen: {
+				header: {
+					display: 'flex',
+					alignSelf: 'flex-end',
+					flexDirection: 'row',
+					marginRight: 40,
+					marginTop: 40,
+					justifyContent: 'center',
+				},
+				headerText: {
+					fontSize: 28,
+					marginRight: 18,
+					fontWeight: 'bold',
+				},
+				closeButton: {
+					fontSize: 32,
+					padding: 4
+				},
+				settingsBody: {
+					paddingTop: 90,
+					paddingLeft: 40,
+					paddingRight: 40,
+				},
+				settingLine: {
+					display: 'flex',
+					flexDirection: 'row',
+					justifyContent: 'space-between',
+					alignItems: 'center',
+					marginBottom: 30,
+				},
+				settingText: {
+					fontSize: 24,
+					fontWeight: 'bold',
+				},
+				settingSwitch: {
+					scaleX: 1.5,
+					scaleY: 1.5,
+				}
 			}
 		}
 	},

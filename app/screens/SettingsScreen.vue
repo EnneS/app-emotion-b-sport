@@ -1,19 +1,19 @@
 <template>
-    <view :style="styles.page">
-      <view :style="styles.header">
-        <text :style="styles.headerText">Paramètres</text>
-        <FontAwesome5 @press="goBack()" name="times" solid :style="styles.closeButton"/>
+    <view :style="styles('page')">
+      <view :style="styles('settingsScreen.header')">
+        <text :style="styles('settingsScreen.headerText')">Paramètres</text>
+        <FontAwesome5 @press="goBack()" name="times" solid :style="styles('settingsScreen.closeButton')"/>
       </view>
-      <view :style="styles.settingsBody">
-        <view :style="styles.settingLine">
-          <text :style="styles.settingText">Mode nuit</text>
+      <view :style="styles('settingsScreen.settingsBody')">
+        <view :style="styles('settingsScreen.settingLine')">
+          <text :style="styles('settingsScreen.settingText')">Mode nuit</text>
           <switch
             :on-value-change = "handleChange"
             :value = "darkMode"
-            :style = "styles.settingSwitch"/>
+            :style="styles('settingsScreen.settingSwitch')"/>
         </view>
-        <view :style="styles.settingLine">
-          <text :style="styles.settingText" @press="logout()">Déconnexion</text>
+        <view :style="styles('settingsScreen.settingLine')">
+          <text :style="styles('settingsScreen.settingText')" @press="logout()">Déconnexion</text>
         </view>
       </view>
     </view>
@@ -38,14 +38,15 @@ export default {
     },
     goBack(){
       this.navigation.goBack();
+      this.$root.$emit("settingsBack");
     }
   },
   computed:{
     styles() {
-      return this.$styles.getStyles(this.$store.state.darkMode ? "dark" : "light").settingsScreen;
+      return this.$styles;
     },
     palettes(){
-      return this.$styles.palettes;
+      return this.styles('palettes');
     },
     darkMode(){
       return this.$store.state.darkMode;
@@ -55,7 +56,4 @@ export default {
 </script>
 
 <style>
-.body {
-  height:100%;
-}
 </style>

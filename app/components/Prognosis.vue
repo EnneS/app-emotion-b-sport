@@ -1,73 +1,73 @@
 <template>
-	<view @layout="updateWidthTeamName" class="container-prognosis" :style="styles.containerPrognosis">		
-		<view v-if="charged" :style="styles.containerPrognosisRow">	
-			<image :source="require('../assets/img/team1.png')" :style="styles.teamLogo"></image>
+	<view @layout="updateWidthTeamName" class="container-prognosis" :style="styles('prognosis.containerPrognosis')">		
+		<view v-if="charged" :style="styles('prognosis.containerPrognosisRow')">	
+			<image :source="require('../assets/img/team1.png')" :style="styles('prognosis.teamLogo')"></image>
 			<text :style="styleTeamName">
 				Portland Trail Blazers
 			</text>
-			<image :source="imgs.vs" :style="styles.vs"></image>
+			<image :source="imgs.vs" :style="styles('prognosis.vs')"></image>
 			<text :style="styleTeamName">
 				LA LAKERS
 			</text>
-			<image :source="require('../assets/img/team2.png')" :style="styles.teamLogo"></image>
+			<image :source="require('../assets/img/team2.png')" :style="styles('prognosis.teamLogo')"></image>
 		</view>
-		<view v-else :style="styles.containerPrognosisRow">	
-			<view :style="styles.teamLogoSkeleton"></view>
-			<view :style="styles.teamNameSkeleton">
-				<view :style="styles.teamNameLine1Skeleton"></view>
-				<view :style="styles.teamNameLine2Skeleton"></view>
+		<view v-else :style="styles('prognosis.containerPrognosisRow')">	
+			<view :style="styles('prognosis.teamLogoSkeleton')"></view>
+			<view :style="styles('prognosis.teamNameSkeleton')">
+				<view :style="styles('prognosis.teamNameLine1Skeleton')"></view>
+				<view :style="styles('prognosis.teamNameLine2Skeleton')"></view>
 			</view>
-			<view :style="styles.vsSkeleton"></view>
-			<view :style="styles.teamNameSkeleton">
-				<view :style="styles.teamNameLine1Skeleton"></view>
-				<view :style="styles.teamNameLine2Skeleton"></view>
+			<view :style="styles('prognosis.vsSkeleton')"></view>
+			<view :style="styles('prognosis.teamNameSkeleton')">
+				<view :style="styles('prognosis.teamNameLine1Skeleton')"></view>
+				<view :style="styles('prognosis.teamNameLine2Skeleton')"></view>
 			</view>
-			<view :style="styles.teamLogoSkeleton"></view>		
+			<view :style="styles('prognosis.teamLogoSkeleton')"></view>		
 		</view>			
-		<view v-if="charged" :style="styles.containerPrognosisRowBottom">
+		<view v-if="charged" :style="styles('prognosis.containerPrognosisRowBottom')">
 			<linear-gradient  
 			:colors="['#21C8F6', '#637BFF']" 
-			:style="styles.termAndStatus"
+			:style="styles('prognosis.termAndStatus')"
 			>
-				<text :style="styles.termText">{{ termValue }}</text>
+				<text :style="styles('prognosis.termText')">{{ termValue }}</text>
 			</linear-gradient>	
 			<linear-gradient  
 			:colors="['#21C8F6', '#637BFF']" 
-			:style="styles.containerPrognosisInfo"
+			:style="styles('prognosis.containerPrognosisInfo')"
 			>
-				<text :style="styles.containerPrognosisInfoHeader">Cote</text>
-				<text :style="styles.prognosisInfo">1.52</text>
+				<text :style="styles('prognosis.containerPrognosisInfoHeader')">Cote</text>
+				<text :style="styles('prognosis.prognosisInfo')">1.52</text>
 			</linear-gradient>
 			<linear-gradient  
 			:colors="['#21C8F6', '#637BFF']" 
-			:style="styles.containerPrognosisInfo"
+			:style="styles('prognosis.containerPrognosisInfo')"
 			>
-				<text :style="styles.containerPrognosisInfoHeader">Mise</text>
-				<text :style="styles.prognosisInfo">4%</text>
+				<text :style="styles('prognosis.containerPrognosisInfoHeader')">Mise</text>
+				<text :style="styles('prognosis.prognosisInfo')">4%</text>
 			</linear-gradient>
 			<linear-gradient  
 			:colors="['#21C8F6', '#637BFF']" 
-			:style="styles.containerPrognosisInfo"
+			:style="styles('prognosis.containerPrognosisInfo')"
 			>
-				<text :style="styles.containerPrognosisInfoHeader">Pronostic</text>
-				<text :style="styles.prognosisInfoPrognosis">Portland Trail Blazers H-35</text>
+				<text :style="styles('prognosis.containerPrognosisInfoHeader')">Pronostic</text>
+				<text :style="styles('prognosis.prognosisInfoPrognosis')">Portland Trail Blazers H-35</text>
 			</linear-gradient>
-			<image v-if="imgStatus == 0" :source="imgs.failed" :style="styles.termAndStatus"></image>	
-			<image v-else-if="imgStatus == 1" :source="imgs.validate" :style="styles.termAndStatus"></image>	
-			<image v-else :source="imgs.neutral" :style="styles.termAndStatus"></image>	
+			<image v-if="imgStatus == 0" :source="imgs.failed" :style="styles('prognosis.termAndStatus')"></image>	
+			<image v-else-if="imgStatus == 1" :source="imgs.validate" :style="styles('prognosis.termAndStatus')"></image>	
+			<image v-else :source="imgs.neutral" :style="styles('prognosis.termAndStatus')"></image>	
 		</view>
-		<view v-else :style="styles.containerPrognosisRowBottom">	
-			<view :style="styles.termSkeleton"></view>	
-			<view :style="styles.containerPrognosisInfoSkeleton">
-				<view :style="styles.containerPrognosisInfoHeaderSkeleton"></view>
+		<view v-else :style="styles('prognosis.containerPrognosisRowBottom')">	
+			<view :style="styles('prognosis.termSkeleton')"></view>	
+			<view :style="styles('prognosis.containerPrognosisInfoSkeleton')">
+				<view :style="styles('prognosis.containerPrognosisInfoHeaderSkeleton')"></view>
 			</view>
-			<view :style="styles.containerPrognosisInfoSkeleton">
-				<view :style="styles.containerPrognosisInfoHeaderSkeleton"></view>
+			<view :style="styles('prognosis.containerPrognosisInfoSkeleton')">
+				<view :style="styles('prognosis.containerPrognosisInfoHeaderSkeleton')"></view>
 			</view>
-			<view :style="styles.containerPrognosisInfoSkeleton">
-				<view :style="styles.containerPrognosisInfoHeaderSkeleton"></view>
+			<view :style="styles('prognosis.containerPrognosisInfoSkeleton')">
+				<view :style="styles('prognosis.containerPrognosisInfoHeaderSkeleton')"></view>
 			</view>
-			<view :style="styles.termSkeleton"></view>	
+			<view :style="styles('prognosis.termSkeleton')"></view>	
 		</view>
 	</view>
 </template>
@@ -91,14 +91,14 @@ export default {
 	},
 	computed: {
 		styles() {
-			return this.$styles.getStyles(this.$store.state.darkMode ? "dark" : "light").prognosis;
+			return this.$styles;
 		},
 		imgs() {
 			return this.$imgs;
 		},
 		styleTeamName() {
 			return {
-				...this.styles.teamName,
+				...this.styles('prognosis.teamName'),
 				...{
 					width: this.sizeTeamName
 				}

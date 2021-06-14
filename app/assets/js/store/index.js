@@ -16,9 +16,7 @@ const vuexLocal = new VuexPersistence({
 const vuexPersistEmitter = () => {
     return store => {
         store.subscribe(mutation => {
-        console.log(mutation.type);
         if (mutation.type === "RESTORE_MUTATION") {
-            console.log("345345345");
             store._vm.$root.$emit("storageReady");
         }
         });

@@ -1,7 +1,6 @@
 <template>
-  <view class="container">
+  <view :style="styles('page')">
     <text class="heading">Home</text>
-    <text class="text">This is the Home screen</text>
   </view>
 </template>
 
@@ -13,7 +12,10 @@ export default {
   computed:{
     user(){
       return this.$store.state.user;
-    }
+    },
+    styles() {
+      return this.$styles;
+    },
   }
 }
 </script>

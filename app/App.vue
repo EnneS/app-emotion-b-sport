@@ -12,7 +12,8 @@ import LoginScreen from "./screens/LoginScreen.vue";
 import LoggedScreen from "./screens/LoggedScreen.vue";
 import SettingsScreen from "./screens/SettingsScreen.vue";
 import {Button, Image} from 'react-native';
-// import imgs from './assets/img/index.js';
+import store from './assets/js/store/';
+import styles from './assets/js/styles.js'
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
 import * as React from 'react';
@@ -20,8 +21,8 @@ import * as React from 'react';
 function LogoTitle() {
   return (
     <Image
-      style={{ width: 200, height: 50, resizeMode: "stretch" }}
-      source={ imgs.logoHorizontalLight }
+      style={{ width: 200, height: 50, marginBottom: 5, resizeMode: "stretch" }}
+      source={ store.state.darkMode ? imgs.logoHorizontalDark : imgs.logoHorizontalLight }
     />
   );
 }
@@ -39,9 +40,10 @@ const StackNavigator = createStackNavigator(
       navigationOptions: ({ navigation }) => ({
         headerTitle: props => <LogoTitle/>,
         headerRight: () => (
-          <FontAwesome5 name="cog" color="#B0B0B0" size={24} solid onPress={() => navigation.navigate("Settings") } style={{marginHorizontal:10}}/>
+          <FontAwesome5 name="cog" color={styles('topNavBarIcon').color} size={24} solid onPress={() => navigation.navigate("Settings") } style={{marginHorizontal:10}}/>
         ),
-        headerLeft: () => null,
+        headerStyle: styles('topNavBar'),
+        headerTintColor: 'white',
       }),
     },
     Settings: {

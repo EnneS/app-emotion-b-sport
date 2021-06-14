@@ -3,27 +3,27 @@
         :source="require('../assets/img/background-login-screen-gradient.jpg')"
         :style="{ width: '100%', height: '100%'}"
       >
-    <view :style="styles.page">
+    <view :style="styles('loginScreen.page')">
       <image
         :source="imgs.logoVertivalDark"
-        :style="styles.logo"
+        :style="styles('loginScreen.logo')"
       />
       <view 
         class="containerConnexionForm"
-        :style="styles.containerConnexionForm"
+        :style="styles('loginScreen.containerConnexionForm')"
       >
-        <text class="headerConnexionForm" :style="styles.headerConnexionForm">Connectez-Vous</text>
-        <text-input placeholder="E-mail" v-model="email" :style="styles.inputForm"/>
-        <text-input placeholder="Mot de passe" v-model="password" :style="styles.inputForm"/>
+        <text class="headerConnexionForm" :style="styles('loginScreen.headerConnexionForm')">Connectez-Vous</text>
+        <text-input placeholder="E-mail" v-model="email" :style="styles('loginScreen.inputForm')"/>
+        <text-input placeholder="Mot de passe" v-model="password" :style="styles('loginScreen.inputForm')"/>
         <linear-gradient  
           :start="{x: 0, y: 0}" :end="{x: 1, y: 0}" 
-          :colors="[styles.colorsButton.color1, styles.colorsButton.color2]" 
-          :style="styles.button"
+          :colors="[styles('loginScreen.colorsButton.color1'), styles('loginScreen.colorsButton.color2')]" 
+          :style="styles('loginScreen.button')"
           >
-            <Text :style="styles.textButton" @press="login">
+            <Text :style="styles('loginScreen.textButton')" @press="login">
               Go
             </Text>
-             <FontAwesome5  name="arrow-right" :style="styles.arrowButton" solid/>
+             <FontAwesome5  name="arrow-right" :style="styles('loginScreen.arrowButton')" solid/>
         </linear-gradient>
       </view>
     </view>
@@ -81,14 +81,11 @@ export default {
   },
   computed: {
     styles() {
-      return this.$styles.getStyles("light").loginScreen;
+      return this.$styles;
     },
     imgs() {
       return this.$imgs;
     }
-  },
-  created() {
-    this.login()
   }
 }
 </script>

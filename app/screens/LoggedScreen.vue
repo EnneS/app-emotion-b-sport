@@ -1,5 +1,5 @@
 <template>
-  <app-navigator></app-navigator>
+  <app-navigator :key="darkMode"></app-navigator>
 </template>
 
 <script>
@@ -14,8 +14,8 @@ import BilanScreen from "./BilanScreen.vue";
 import ContactScreen from "./ContactScreen.vue";
 import * as React from 'react';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-
-let dark = true;
+import store from '../assets/js/store/';
+import styles from '../assets/js/styles.js'
 
 const BottomTabNavigator = createMaterialTopTabNavigator(
   {
@@ -24,8 +24,9 @@ const BottomTabNavigator = createMaterialTopTabNavigator(
       navigationOptions: ({ navigation }) => ({
         title:"24H",
         tabBarIcon: (focused) => {
-          return <FontAwesome5 name="clock" color={navigation.isFocused() ? '#3788fa' : '#B0B0B0'}size={24} solid/>
+          return <FontAwesome5 name="clock" color={navigation.isFocused() ? '#3788fa' : styles('bottomNavBarIcon').color}size={24} solid/>
         },
+        unmountOnBlur: true,
       })
     },
     Pronos: {
@@ -33,37 +34,39 @@ const BottomTabNavigator = createMaterialTopTabNavigator(
       navigationOptions: ({ navigation }) => ({
         title:"Pronos",
         tabBarIcon: (focused) => {
-          return <FontAwesome5 name="basketball-ball" color={navigation.isFocused() ? '#3788fa' : '#B0B0B0'}size={24} solid/>
+          return <FontAwesome5 name="basketball-ball" color={navigation.isFocused() ? '#3788fa' : styles('bottomNavBarIcon').color}size={24} solid/>
         },
+        unmountOnBlur: true,
       })
     },
     Bilan: {
       screen: BilanScreen,
       navigationOptions: ({ navigation }) => ({
         tabBarIcon: (focused) => {
-          return <FontAwesome5 name="chart-line" color={navigation.isFocused() ? '#3788fa' : '#B0B0B0'}size={24} solid/>
+          return <FontAwesome5 name="chart-line" color={navigation.isFocused() ? '#3788fa' : styles('bottomNavBarIcon').color}size={24} solid/>
         },
+        unmountOnBlur: true,
       })
     },
     Contact: {
       screen: ContactScreen,
       navigationOptions: ({ navigation }) => ({
         tabBarIcon: (focused) => {
-          return <FontAwesome5 name="at" color={navigation.isFocused() ? '#3788fa' : '#B0B0B0'}size={24} solid/>
+          return <FontAwesome5 name="at" color={navigation.isFocused() ? '#3788fa' : styles('bottomNavBarIcon').color}size={24} solid/>
         },
+        unmountOnBlur: true,
       })
     },
   },
   {
+    lazy:true,
     tabBarPosition: "bottom",
     initialRouteName:'Pronos',
     tabBarOptions: {
       showLabel: true,
       showIcon: true,
       activeTintColor: '#3788fa',
-      style: {
-        backgroundColor: "white"
-      },
+      style: styles('bottomNavBar'),
       tabStyle: {
         height:55,
         minHeight:10,
@@ -81,7 +84,7 @@ const BottomTabNavigator = createMaterialTopTabNavigator(
         top:0,
         backgroundColor:"#3788fa",
       },
-      pressColor:"lightgray"
+      pressColor: 'gray',
     },
   }
 );
@@ -89,6 +92,16 @@ const BottomTabNavigator = createMaterialTopTabNavigator(
 const AppNavigator = createAppContainer(BottomTabNavigator);
 
 export default {
+  props: {
+    navigation: { type: Object }
+  },
+
   components: { AppNavigator },
+
+  computed:{
+    darkMode(){
+      return this.$store.state.darkMode;
+    },
+  },
 }
 </script>

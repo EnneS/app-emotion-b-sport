@@ -1,7 +1,6 @@
 <template>
-  <view class="container">
+  <view :style="styles('page')">
     <text class="heading">Contact</text>
-    <text class="text">This is the Contact screen</text>
   </view>
 </template>
 
@@ -9,6 +8,14 @@
 export default {
   props: {
     navigation: { type: Object }
+  },
+  computed:{
+    user(){
+      return this.$store.state.user;
+    },
+    styles() {
+      return this.$styles;
+    },
   }
 }
 </script>

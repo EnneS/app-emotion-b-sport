@@ -1,9 +1,9 @@
 <template>
   <scroll-view>
-    <view :style="styles.page">
-        <view v-for="i in 10" :key="i" class="test">
+    <view :style="styles('prognosis.page')">
+        <view v-for="i in 5" :key="i" class="test">
           <CategoryLine></CategoryLine>
-          <Prognosis v-for="j in 10" :key="j"></Prognosis>
+          <Prognosis v-for="j in 5" :key="j"></Prognosis>
         </view>  
     </view>
   </scroll-view>
@@ -26,7 +26,7 @@ export default {
   },
   computed: {
     styles() {
-      return this.$styles.getStyles("light").todaysBetsScreen
+      return this.$styles;
     }
   }
 }

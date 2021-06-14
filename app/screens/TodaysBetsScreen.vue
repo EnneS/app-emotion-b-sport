@@ -1,25 +1,38 @@
 <template>
-  <view class="container">
-    <text class="heading">Today's Bets</text>
-    <text class="text">This is the Today's Bets Screen</text>
-  </view>
+  <scroll-view>
+    <view :style="styles.page">
+        <view v-for="i in 10" :key="i" class="test">
+          <CategoryLine></CategoryLine>
+          <Prognosis v-for="j in 10" :key="j"></Prognosis>
+        </view>  
+    </view>
+  </scroll-view>
 </template>
 
 <script>
+import Prognosis from '../components/Prognosis.vue';
+import CategoryLine from '../components/CategoryLine.vue';
 export default {
+  components: {
+    CategoryLine,
+    Prognosis
+  },
   props: {
     navigation: { type: Object }
+  },
+  data() {
+    return {
+    }
+  },
+  computed: {
+    styles() {
+      return this.$styles.todaysBetsScreen
+    }
   }
 }
 </script>
 
 <style>
-.container {
-  align-items: center;
-  justify-content: center;
-  flex: 1;
-  padding: 50px;
-}
 .heading {
   font-size: 30px;
   font-weight: bold;
@@ -29,5 +42,9 @@ export default {
 .text {
   text-align: center;
   margin: 10px;
+}
+
+.test {
+	overflow: visible;
 }
 </style>

@@ -10,7 +10,7 @@ import Vue from "vue-native-core";
 import styles from './assets/js/styles.js'
 import imgs from './assets/img/index.js';
 
-Vue.prototype.$styles = styles;
+Vue.prototype.$styles = styles.getStyles("dark");
 Vue.prototype.$imgs = imgs;
 
 console.disableYellowBox = true;

@@ -29,7 +29,7 @@
 			:colors="['#21C8F6', '#637BFF']" 
 			:style="styles('prognosis.termAndStatus')"
 			>
-				<text :style="styles('prognosis.termText')">{{ termValue }}</text>
+				<text :style="styles('prognosis.termText')">{{ termValue }}</text>				
 			</linear-gradient>	
 			<linear-gradient  
 			:colors="['#21C8F6', '#637BFF']" 
@@ -100,7 +100,8 @@ export default {
 			return {
 				...this.styles('prognosis.teamName'),
 				...{
-					width: this.sizeTeamName
+					width: this.sizeTeamName,
+					color: this.$store.state.darkMode ? 'white' : '#3683D6',
 				}
 			}
 		},

@@ -145,7 +145,7 @@ let styles = {
 	*/
 	categoryLine: {
 		containerCategoryLines: {
-			marginBottom: 15,
+			marginBottom: 0,
 			display: 'flex',
 			alignItems: 'center'
 		},		
@@ -187,7 +187,10 @@ let styles = {
 			...rounded
 		},	
 		categoryName: {
-			...text
+			...text,
+			... {
+				color: 'text'
+			}
 		},
 		line: {
 			backgroundColor: 'text',
@@ -252,7 +255,6 @@ let styles = {
 		teamName: {
 			textAlign: 'center',
 			flexShrink: 1,
-			color: '#3683D6',
 			fontWeight: 'bold',
 		},
 		teamNameSkeleton: {
@@ -332,12 +334,10 @@ let styles = {
 			backgroundColor: 'skeletonSecondary'
 		},
 		termText: {
-			...text,
-			...{
-				fontSize: 15,
-				fontWeight: 'bold',
-				color: 'white',
-			}
+			fontSize: 15,
+			fontWeight: 'bold',
+			color: 'white',
+			textAlign: 'center',
 		},
 		prognosisInfo: {
 			flexGrow: 1,

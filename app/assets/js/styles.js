@@ -35,7 +35,8 @@ const container = {
 
 const text = {
 	textAlign: 'center',
-	margin: 10
+	margin: 10,
+	color: 'text2',
 }
 
 const shadow = {
@@ -399,6 +400,47 @@ let styles = {
 		settingSwitch: {
 			scaleX: 1.5,
 			scaleY: 1.5,
+		}
+	},
+	contactScreen: {
+		logo: {
+			width: 300,
+			height:150,
+			alignSelf: 'center',
+			marginTop: 75,
+			marginBottom: 80,	
+		},
+		mail: {
+			alignSelf: 'center',
+			display: 'flex',
+			flexDirection: 'row',
+			alignItems: 'center',
+			marginBottom: 80,
+		},
+		mailText: {
+			fontSize: 16,
+			color: 'text',
+		},
+		envelope: {
+			color: 'text',
+			fontSize: 52,
+			marginRight: 18,
+		},
+		socials: {
+			display: 'flex',
+			flexDirection: 'row',
+			alignItems: 'center',
+			alignSelf: 'center',
+		},
+		line: {
+			width: 25,
+			height: 2,
+			marginRight: 10,
+			marginLeft: 10,
+			backgroundColor: 'text',
+		},
+		socialLogo: {
+			fontSize: 72,
 		}
 	}
 }
